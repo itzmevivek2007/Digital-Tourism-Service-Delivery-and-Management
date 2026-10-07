@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YatraHub - Digital Tourism Service</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">🧭 YatraHub</div>
+  <nav>
+    <a href="#explore">Explore</a>
+    <a href="#suggest">Suggest Me</a>
+    <a href="#book">Book Travel</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Discover India, one journey at a time</h1>
+  <p>Find places by state or by what you love - mountains, beaches, temples - then book your bus and train in a few clicks.</p>
+  <a class="btn" href="#explore">Start exploring</a>
+</section>
+
+<!-- EXPLORE -->
+<section id="explore" class="section">
+  <h2>Explore places</h2>
+  <div class="filters">
+    <input id="searchBox" type="text" placeholder="Search a place or state...">
+    <select id="stateSelect"><option value="">All states</option></select>
+    <div class="chips" id="categoryChips">
+      <button class="chip active" data-cat="">All</button>
+      <button class="chip" data-cat="Mountain">⛰️ Mountains</button>
+      <button class="chip" data-cat="Beach">🏖️ Beaches</button>
+      <button class="chip" data-cat="Temple">🛕 Temples</button>
+      <button class="chip" data-cat="Heritage">🏰 Heritage</button>
+      <button class="chip" data-cat="Nature">🌿 Nature</button>
+    </div>
+  </div>
+  <p id="resultCount" class="muted"></p>
+  <div id="placeGrid" class="grid"></div>
+</section>
+
+<!-- SUGGEST -->
+<section id="suggest" class="section alt">
+  <h2>Not sure where to go? Let us suggest</h2>
+  <form id="suggestForm" class="form-row">
+    <label>I love
+      <select id="sgCategory">
+        <option value="Mountain">Mountains</option>
+        <option value="Beach">Beaches</option>
+        <option value="Temple">Temples</option>
+        <option value="Heritage">Heritage</option>
+        <option value="Nature">Nature</option>
+      </select>
+    </label>
+    <label>Travelling in
+      <select id="sgMonth"></select>
+    </label>
+    <label>Budget
+      <select id="sgBudget">
+        <option value="1">Low</option>
+        <option value="2" selected>Medium</option>
+        <option value="3">High</option>
+      </select>
+    </label>
+    <button class="btn" type="submit">Suggest places</button>
+  </form>
+  <div id="suggestGrid" class="grid"></div>
+</section>
+
+<!-- BOOK -->
+<section id="book" class="section">
+  <h2>Book your travel</h2>
+  <p class="muted">Pick your cities and we'll open the booking partner with your trip ready to search.</p>
+  <div class="form-row">
+    <label>From
+      <input id="fromCity" type="text" placeholder="e.g. Delhi" list="cityList">
+    </label>
+    <label>To
+      <input id="toCity" type="text" placeholder="e.g. Manali" list="cityList">
+    </label>
+    <label>Date
+      <input id="travelDate" type="date">
+    </label>
+    <datalist id="cityList"></datalist>
+  </div>
+  <div class="book-cards">
+    <div class="book-card">
+      <h3>🚌 Bus tickets</h3>
+      <p>Book through RedBus.</p>
+      <button class="btn" id="btnBus">Search buses on RedBus</button>
+    </div>
+    <div class="book-card">
+      <h3>🚆 Train tickets</h3>
+      <p>Book through RailOne.</p>
+      <button class="btn" id="btnTrain">Open RailOne</button>
+      <p class="muted small">Opens the Indian Railways booking service. Enter your journey details there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section alt">
+  <h2>About this project</h2>
+  <p>YatraHub is a college project on <strong>Digital Tourism Service Delivery and Management</strong>. It shows how a digital platform can help tourists discover destinations, get personalised suggestions, and move directly to booking, all from one place. Booking is handled by the official partner platforms (RedBus and RailOne).</p>
+</section>
+
+<footer>© 2026 YatraHub - College Project</footer>
+
+<!-- Place detail modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button id="closeModal" class="close">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
